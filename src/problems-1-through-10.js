@@ -2,12 +2,14 @@
  * Created by dougiefresh49 on 1/23/16.
  */
 
+var commons = require('./common-algorithms');
 
 module.exports = {
     multiplesOf3and5: multiplesOf3and5,
     evenFibNumbers: evenFibonacciiNumbers,
     largestPrimeFactor: largestPrimeFactor,
-    largestPalindrome: largestPalindrome
+    largestPalindrome: largestPalindrome,
+    smallestMultiple: smallestMultiple
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -74,4 +76,17 @@ function largestPalindrome(numDigits) {
     }
 
     return largestPalindrome;
+}
+
+// Problem 5: Smallest Multiple
+// Solution based off of the following
+// SO: http://stackoverflow.com/questions/31302054/how-to-find-the-least-common-multiple-of-a-range-of-numbers
+function smallestMultiple(min, max) {
+
+    var multiple = min;
+    for(var n = min; n < max; n++) {
+        multiple = commons.lcm(multiple, n);
+    }
+
+    return multiple;
 }
