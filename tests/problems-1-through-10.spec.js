@@ -43,5 +43,15 @@ describe('Problems 1 Through 10', function () {
             expect(problems.largestPalindrome(3)).to.be.eql(906609);
         });
     });
+
+    describe('Problem 5: Smallest Multiple', function () {
+        it('should calculate the smallest multiple for numbers 1 through 10', function() {
+            expect(problems.smallestMultiple(1, 10)).to.be.eql(2520);
+        });
+
+        it('should calculate the smallest multiple for numbers 1 through 20', function() {
+            expect(problems.smallestMultiple(1, 20)).to.be.eql(232792560);
+        });
+    });
     
 });
