@@ -1,0 +1,35 @@
+{
+  "name": "project-euler",
+  "version": "1.0.0",
+  "description": "A collection of solutions to Project Euler's problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougiefresh49/project-euler.git"
+  },
+  "keywords": [
+    "project",
+    "euler"
+  ],
+  "author": "Doug Lasater",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dougiefresh49/project-euler/issues"
+  },
+  "homepage": "https://github.com/dougiefresh49/project-euler#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "commitizen": "^2.5.0",
+    "cz-conventional-changelog": "^1.1.5",
+    "mocha": "^2.3.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
