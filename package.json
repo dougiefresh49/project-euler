@@ -1,15 +1,16 @@
 {
   "name": "project-euler",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "A collection of solutions to Project Euler's problems",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha tests",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dougiefresh49/project-euler.git"
+    "url": "https://github.com/dougiefresh49/project-euler.git"
   },
   "keywords": [
     "project",
@@ -26,14 +27,15 @@
     "commitizen": "^2.5.0",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "1.0.3",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     },
-    "ghooks" : {
-      "pre-commit":  "npm test"
+    "ghooks": {
+      "pre-commit": "npm test"
     }
   }
 }
