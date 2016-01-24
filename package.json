@@ -4,7 +4,7 @@
   "description": "A collection of solutions to Project Euler's problems",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha tests",
+    "test": "istanbul cover -x *.spec.js _mocha -- -R spec tests",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -27,6 +27,7 @@
     "commitizen": "^2.5.0",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "1.0.3",
+    "istanbul": "0.4.2",
     "mocha": "^2.3.4",
     "semantic-release": "^4.3.5"
   },
