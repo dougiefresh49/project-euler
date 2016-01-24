@@ -6,7 +6,8 @@
 module.exports = {
     multiplesOf3and5: multiplesOf3and5,
     evenFibNumbers: evenFibonacciiNumbers,
-    largestPrimeFactor: largestPrimeFactor
+    largestPrimeFactor: largestPrimeFactor,
+    largestPalindrome: largestPalindrome
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -40,6 +41,7 @@ function evenFibonacciiNumbers(limit) {
 }
 
 // Problem 3: Largest Prime Factors
+// Note: idea from https://jsfiddle.net/JamesOR/RC7SY/
 function largestPrimeFactor(num) {
     var i;
 
@@ -50,4 +52,26 @@ function largestPrimeFactor(num) {
     }
 
     return i;
+}
+
+// Problem 4: Largest Palindrome
+function largestPalindrome(numDigits) {
+
+    var i = parseInt(new Array(numDigits + 1).join('9')),
+        startNum = parseInt(new Array(numDigits + 1).join('9')),
+        minNum = parseInt(new Array(numDigits).join('9')),
+        largestPalindrome = 0;
+
+    for(i; i > minNum; i--) {
+        for(var j = startNum; j > minNum; j--) {
+            var multiple = (j * i);
+
+            // Check for palindrome
+            if(multiple.toString() === multiple.toString().split('').reverse().join('')) {
+                largestPalindrome = (largestPalindrome < multiple) ? multiple : largestPalindrome;
+            }
+        }
+    }
+
+    return largestPalindrome;
 }

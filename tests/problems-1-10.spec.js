@@ -33,5 +33,15 @@ describe('Problems 1 Through 10', function () {
             expect(problems.largestPrimeFactor(600851475143)).to.be.eql(6857);
         });
     });
+
+    describe('Problem 4: Largest Palindrome', function () {
+        it('should calculate the largest palindrome for two digit number to be 9009', function() {
+            expect(problems.largestPalindrome(2)).to.be.eql(9009);
+        });
+
+        it('should calculate the largest palindrome for 3 digit number to be 906609 ', function() {
+            expect(problems.largestPalindrome(3)).to.be.eql(906609);
+        });
+    });
     
 });
