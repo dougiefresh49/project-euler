@@ -2,7 +2,7 @@
   "name": "project-euler",
   "version": "1.0.0",
   "description": "A collection of solutions to Project Euler's problems",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha tests",
     "commit": "git-cz"
@@ -25,11 +25,15 @@
     "chai": "^3.4.1",
     "commitizen": "^2.5.0",
     "cz-conventional-changelog": "^1.1.5",
+    "ghooks": "1.0.3",
     "mocha": "^2.3.4"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks" : {
+      "pre-commit":  "npm test"
     }
   }
 }
