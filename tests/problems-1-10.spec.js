@@ -14,4 +14,14 @@ describe('Problems 1 Through 10', function () {
         });
     });
     
+    describe('Problem 2: Even Fibonacci Numbers', function () {
+        it('should sum even fib numbers between 1 and 10', function() {
+            expect(problems.evenFibNumbers(10)).to.be.eql(10);
+        });
+
+        it('should sum even fib numbers between 1 and 4,000,000', function() {
+            expect(problems.evenFibNumbers(10)).to.be.eql(4613732);
+        });
+    });
+    
 });
