@@ -20,7 +20,17 @@ describe('Problems 1 Through 10', function () {
         });
 
         it('should sum even fib numbers between 1 and 4,000,000', function() {
-            expect(problems.evenFibNumbers(10)).to.be.eql(4613732);
+            expect(problems.evenFibNumbers(4000000)).to.be.eql(4613732);
+        });
+    });
+    
+    describe('Problem 3: Largest Prime Factor', function () {
+        it('should calculate the largest prime factor for 651 to be 31', function() {
+            expect(problems.largestPrimeFactor(651)).to.be.eql(31);
+        });
+
+        it('should calculate the largest prime factor for 651 to be 31', function() {
+            expect(problems.largestPrimeFactor(600851475143)).to.be.eql(6857);
         });
     });
     

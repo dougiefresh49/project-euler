@@ -5,7 +5,8 @@
 
 module.exports = {
     multiplesOf3and5: multiplesOf3and5,
-    evenFibNumbers: evenFibonacciiNumbers
+    evenFibNumbers: evenFibonacciiNumbers,
+    largestPrimeFactor: largestPrimeFactor
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -20,6 +21,7 @@ function multiplesOf3and5(limit) {
     return sum;
 }
 
+// Problem 2: Even Fibonacci Numbers
 function evenFibonacciiNumbers(limit) {
     var sum = 0;
     var previous1 = 1;
@@ -35,4 +37,17 @@ function evenFibonacciiNumbers(limit) {
     }
 
     return sum
+}
+
+// Problem 3: Largest Prime Factors
+function largestPrimeFactor(num) {
+    var i;
+
+    for(i = 2; i < num; i++) {
+        while(num % i === 0) {
+            num /= i;
+        }
+    }
+
+    return i;
 }
