@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "test": "istanbul cover -x *.spec.js _mocha -- -R spec tests",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/dougiefresh49/project-euler#readme",
   "devDependencies": {
     "chai": "^3.4.1",
+    "codecov.io": "0.1.6",
     "commitizen": "^2.5.0",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "1.0.3",
