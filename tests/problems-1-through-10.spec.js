@@ -54,4 +54,14 @@ describe('Problems 1 Through 10', function () {
         });
     });
     
+    describe('Problem 6: Sum Square Difference', function () {
+        it('should get the difference between the sum of the squares of the first ten natural numbers and the square of the sum', function() {
+            expect(problems.sumSquareDiff(1,10)).to.be.eql(2640);
+        });
+        
+        it('should get the difference between the sum of the squares of the first 100 natural numbers and the square of the sum', function() {
+            expect(problems.sumSquareDiff(1,100)).to.be.eql(25164150);
+        });
+    });
+    
 });

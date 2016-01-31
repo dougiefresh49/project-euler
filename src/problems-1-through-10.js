@@ -9,7 +9,8 @@ module.exports = {
     evenFibNumbers: evenFibonacciiNumbers,
     largestPrimeFactor: largestPrimeFactor,
     largestPalindrome: largestPalindrome,
-    smallestMultiple: smallestMultiple
+    smallestMultiple: smallestMultiple,
+    sumSquareDiff: sumSquareDiff
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -89,4 +90,17 @@ function smallestMultiple(min, max) {
     }
 
     return multiple;
+}
+
+function sumSquareDiff(min, max) {
+    var sumOfSquares = 0,
+        sum = 0;
+
+    for(var i = min; i <= max; i++) {
+        sumOfSquares += i*i;
+        sum += i;
+    }
+
+    return (sum * sum) - sumOfSquares;
+
 }
