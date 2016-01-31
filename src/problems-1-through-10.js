@@ -11,7 +11,8 @@ module.exports = {
     largestPalindrome: largestPalindrome,
     smallestMultiple: smallestMultiple,
     sumSquareDiff: sumSquareDiff,
-    nthPrime: nthPrime
+    nthPrime: nthPrime,
+    largestProductInSeries: largestProductInSeries
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -106,6 +107,7 @@ function sumSquareDiff(min, max) {
     return (sum * sum) - sumOfSquares;
 }
 
+// Problem 7: nth Prime
 function nthPrime(limit) {
     var count = 1,
         candidate = 1;
@@ -116,4 +118,18 @@ function nthPrime(limit) {
     }
 
     return candidate;
+}
+
+// Problem 8: Largest Product in a Series
+function largestProductInSeries(series, numAdj) {
+    var largestProduct = 0;
+    var product;
+
+    for(var i = 0; i < series.length; i++) {
+        product = 1;
+        series.substr(i, numAdj).split('').forEach(function (n) { product *= parseInt(n); });
+        largestProduct = (product > largestProduct) ? product : largestProduct;
+    }
+
+    return largestProduct;
 }
