@@ -9,7 +9,11 @@ module.exports = {
     evenFibNumbers: evenFibonacciiNumbers,
     largestPrimeFactor: largestPrimeFactor,
     largestPalindrome: largestPalindrome,
-    smallestMultiple: smallestMultiple
+    smallestMultiple: smallestMultiple,
+    sumSquareDiff: sumSquareDiff,
+    nthPrime: nthPrime,
+    largestProductInSeries: largestProductInSeries,
+    sumAllPrimes: sumAllPrimes
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -89,4 +93,55 @@ function smallestMultiple(min, max) {
     }
 
     return multiple;
+}
+
+// Problem 6: Sum Square Difference
+function sumSquareDiff(min, max) {
+    var sumOfSquares = 0,
+        sum = 0;
+
+    for(var i = min; i <= max; i++) {
+        sumOfSquares += i*i;
+        sum += i;
+    }
+
+    return (sum * sum) - sumOfSquares;
+}
+
+// Problem 7: nth Prime
+function nthPrime(limit) {
+    var count = 1,
+        candidate = 1;
+
+    while(count < limit) {
+        candidate+=2;
+        if(commons.isPrime(candidate)) count += 1;
+    }
+
+    return candidate;
+}
+
+// Problem 8: Largest Product in a Series
+function largestProductInSeries(series, numAdj) {
+    var largestProduct = 0;
+    var product;
+
+    for(var i = 0; i < series.length; i++) {
+        product = 1;
+        series.substr(i, numAdj).split('').forEach(function (n) { product *= parseInt(n); });
+        largestProduct = (product > largestProduct) ? product : largestProduct;
+    }
+
+    return largestProduct;
+}
+
+// Problem 10: Summation of Primes
+function sumAllPrimes(limit) {
+    var sum = 2; // we know 2 is prime
+
+    for(var i = 1; i < limit; i+=2) {
+        if(commons.isPrime(i)) sum += i;
+    }
+
+    return sum;
 }
