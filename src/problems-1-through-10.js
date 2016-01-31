@@ -12,7 +12,8 @@ module.exports = {
     smallestMultiple: smallestMultiple,
     sumSquareDiff: sumSquareDiff,
     nthPrime: nthPrime,
-    largestProductInSeries: largestProductInSeries
+    largestProductInSeries: largestProductInSeries,
+    sumAllPrimes: sumAllPrimes
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -132,4 +133,15 @@ function largestProductInSeries(series, numAdj) {
     }
 
     return largestProduct;
+}
+
+// Problem 10: Summation of Primes
+function sumAllPrimes(limit) {
+    var sum = 2; // we know 2 is prime
+
+    for(var i = 1; i < limit; i+=2) {
+        if(commons.isPrime(i)) sum += i;
+    }
+
+    return sum;
 }

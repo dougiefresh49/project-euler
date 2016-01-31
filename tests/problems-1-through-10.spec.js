@@ -105,6 +105,17 @@ describe('Problems 1 Through 10', function () {
         });
     });
     
+    describe('Problem 10: Summation of Primes', function () {
+        it('should sum all primes below 10 to be 17', function() {
+            expect(problems.sumAllPrimes(10)).to.be.eql(17);
+        });
+
+        it('should sum all primes below 2 Million to be 17', function() {
+            // Commented out due to time it takes to complete :(
+            //expect(problems.sumAllPrimes(2000000)).to.be.eql(142913828922);
+        });
+    });
+    
 });
 
 
