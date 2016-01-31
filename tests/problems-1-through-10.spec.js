@@ -63,5 +63,37 @@ describe('Problems 1 Through 10', function () {
             expect(problems.sumSquareDiff(1,100)).to.be.eql(25164150);
         });
     });
+
+    describe('Problem 7: 10001st Prime', function () {
+        it('should calculate the 6th prime to be 13', function() {
+            expect(problems.nthPrime(6)).to.be.eql(13);
+        });
+
+        it('should calculate the 10001st prime to be 104743', function() {
+            expect(problems.nthPrime(10001)).to.be.eql(104743);
+        });
+
+    });
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

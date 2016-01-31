@@ -10,7 +10,8 @@ module.exports = {
     largestPrimeFactor: largestPrimeFactor,
     largestPalindrome: largestPalindrome,
     smallestMultiple: smallestMultiple,
-    sumSquareDiff: sumSquareDiff
+    sumSquareDiff: sumSquareDiff,
+    nthPrime: nthPrime
 };
 
 // Problem 1: Multiples of 3 and 5
@@ -92,6 +93,7 @@ function smallestMultiple(min, max) {
     return multiple;
 }
 
+// Problem 6: Sum Square Difference
 function sumSquareDiff(min, max) {
     var sumOfSquares = 0,
         sum = 0;
@@ -102,5 +104,16 @@ function sumSquareDiff(min, max) {
     }
 
     return (sum * sum) - sumOfSquares;
+}
 
+function nthPrime(limit) {
+    var count = 1,
+        candidate = 1;
+
+    while(count < limit) {
+        candidate+=2;
+        if(commons.isPrime(candidate)) count += 1;
+    }
+
+    return candidate;
 }
