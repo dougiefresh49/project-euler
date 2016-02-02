@@ -110,7 +110,7 @@ describe('Problems 1 Through 10', function () {
             expect(problems.sumAllPrimes(10)).to.be.eql(17);
         });
 
-        it('should sum all primes below 2 Million to be 17', function() {
+        it('should sum all primes below 2 Million to be 142913828922', function() {
             // Commented out due to time it takes to complete :(
             //expect(problems.sumAllPrimes(2000000)).to.be.eql(142913828922);
         });

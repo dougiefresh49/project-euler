@@ -8,3 +8,30 @@ A collection of my solutions to Project Euler's problems
 [![MIT License](https://img.shields.io/npm/l/project-euler.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+
+
+## About
+The project is simple and easy to use. Most problems have two unit tests written: one for the given simple solution and 
+one that test for the actual answer.
+ 
+All credit is given via links in comments to the respective owners if ever an algorithm is used from Stack Overflow 
+solutions.
+
+**Note:** Some tests are commented out as they take longer than desired when running the Travis-CI build.
+
+
+## Setup
+`npm install project-euler`
+
+
+## Usage
+
+### Run Tests Once
+Simple and easy, see the code in action
+
+`npm run test:single`
+
+### Run Tests Continuously
+Run the tests continuously while developing solutions for the problems or optimizing the current solutions.
+
+`npm run test:tdd`
