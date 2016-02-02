@@ -50,5 +50,15 @@ describe('Common Algorithms', function () {
         });
 
     });
+
+    describe('Get Triangle Numbers', function () {
+        it('should get the 3rd triangle number', function() {
+            expect(commons.getTriangleNumber(3)).to.be.eql(6);
+        });
+
+        it('should get the 7th triangle number', function() {
+            expect(commons.getTriangleNumber(7)).to.be.eql(28);
+        });
+    });
     
 });

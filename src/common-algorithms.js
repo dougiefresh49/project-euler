@@ -2,7 +2,10 @@
 module.exports = {
     euclideanGCD: euclideanGCD,
     lcm: lcm,
-    isPrime: isPrime
+    isPrime: isPrime,
+    getTriangleNumber: getTriangleNumber,
+    getNumFactors: getNumFactors,
+    getCollatzChain: getCollatzChain
 };
 
 // Wiki: https://en.wikipedia.org/wiki/Euclidean_algorithm
@@ -46,4 +49,29 @@ function isPrime(n) {
 
         return true;
     }
+}
+
+function getTriangleNumber(n) {
+    return ( n * (n + 1) ) / 2
+}
+
+function getNumFactors(n) {
+    var factors = 1, // start at 1 to account for n itself
+        increment = (n % 2 === 0) ? 1 : 2;
+
+    for(var i = 1; i < n / 2; i+=increment) {
+        factors += (n % i === 0) ? 1 : 0;
+    }
+    return factors;
+}
+
+function getCollatzChain(n) {
+    var chainLength = 0;
+
+    while(n > 1) {
+        n = (n % 2 === 0) ? n / 2 : 3*n + 1;
+        chainLength++;
+    }
+
+    return chainLength;
 }
