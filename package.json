@@ -8,6 +8,7 @@
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "test": "istanbul cover -x *.spec.js _mocha -- -R spec tests",
     "test:tdd": "mocha tests -w",
+    "test:single": "mocha tests",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
