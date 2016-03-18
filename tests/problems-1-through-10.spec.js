@@ -106,8 +106,12 @@ describe('Problems 1 Through 10', function () {
     });
 
     describe('Problem 9: Special Pythagorean Triplet', function () {
+        it('should find the product of a*b*c when a is 3, b is 4, c is 5', function() {
+            expect(problems.pythagoreanTriplet(12)).to.be.eql(60);
+        });
+
         it('should find the product of a*b*c when a + b + c = 1000', function() {
-            expect(problems.pythagoreanTriplet()).to.be.eql(31875000);
+            expect(problems.pythagoreanTriplet(1000)).to.be.eql(31875000);
         });
     });
 

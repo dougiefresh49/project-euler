@@ -139,14 +139,13 @@ function largestProductInSeries(series, numAdj) {
 // Problem 9: Special Pythagorean Triplet
 // Solution based off of the following
 // SO: http://stackoverflow.com/questions/16143499/pythagorean-triples-formula-in-javascript-project-euler-prob-9
-// TODO: better understand parametrisation of Pythagorean triplets
-function pythagoreanTriplet() {
+function pythagoreanTriplet(tripletSum) {
     var a, b, c;
-    for(b = 1; b < 1000; b++) {
-        a = (500000 - 1000 * b) / (1000 - b);
+    for(b = 1; b < tripletSum; b++) {
+        a = (Math.pow(tripletSum,2)/2 - tripletSum * b) / (tripletSum- b);
 
         if(Math.floor(a) === a) {
-            c = 1000 - a - b;
+            c = tripletSum - a - b;
             break;
         }
     }
