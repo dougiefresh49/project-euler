@@ -104,7 +104,13 @@ describe('Problems 1 Through 10', function () {
             expect(problems.largestProductInSeries(series, 13)).to.be.eql(23514624000);
         });
     });
-    
+
+    describe('Problem 9: Special Pythagorean Triplet', function () {
+        it('should find the product of a*b*c when a + b + c = 1000', function() {
+            expect(problems.pythagoreanTriplet()).to.be.eql(31875000);
+        });
+    });
+
     describe('Problem 10: Summation of Primes', function () {
         it('should sum all primes below 10 to be 17', function() {
             expect(problems.sumAllPrimes(10)).to.be.eql(17);
