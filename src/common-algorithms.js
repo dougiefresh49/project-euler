@@ -56,12 +56,14 @@ function getTriangleNumber(n) {
 }
 
 function getNumFactors(n) {
-    var factors = 1, // start at 1 to account for n itself
-        increment = (n % 2 === 0) ? 1 : 2;
+    var factors = 0;
 
-    for(var i = 1; i < n / 2; i+=increment) {
-        factors += (n % i === 0) ? 1 : 0;
+    for(var i = 1; i*i <= n; i++) {
+        factors += (n % i === 0)
+            ? (i * i < n) ? 2 : 1
+            : 0;
     }
+
     return factors;
 }
 

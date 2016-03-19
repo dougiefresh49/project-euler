@@ -13,12 +13,13 @@ describe('Problems 11 through 20', function () {
     });
 
     describe('Problem 12: Highly Divisible Triangle Number', function () {
-        it('should calculate that 28 is the first triangle number with 5 divisors', function() {
+        it('should calculate that 28 is the first triangle number with over 5 divisors', function() {
             expect(problems.divisibleTriangleNumbers(5)).to.be.eql(28);
         });
 
-        xit('should calculate the first triangle number with 500 divisors', function() {
-            //expect(problems.divisibleTriangleNumbers(500)).to.be.eql(??);
+        it('should calculate the first triangle number with 500 divisors', function() {
+            this.timeout(15000);
+            expect(problems.divisibleTriangleNumbers(500)).to.be.eql(76576500);
         });
     });
 

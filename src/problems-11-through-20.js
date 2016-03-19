@@ -55,20 +55,18 @@ function largestProductInGrid(grid, numAdjacent) {
     return largestProduct;
 }
 
-// TODO: find better solution
 // Problem 12:
+// Solution was optimized / refactored based off of the post at
+// http://codereview.stackexchange.com/questions/74895/project-euler-problem-12-triangle-number-with-500-divisors
 function divisibleTriangleNumbers(numDivisors) {
-
-    var i = 0,
+    var i = 1,
         triangleNum,
         factors = 0;
 
-    do {
-        i++;
+    for(i; factors < numDivisors; i++) {
         triangleNum = commons.getTriangleNumber(i);
         factors = commons.getNumFactors(triangleNum);
     }
-    while(factors < numDivisors);
 
     return triangleNum;
 }
