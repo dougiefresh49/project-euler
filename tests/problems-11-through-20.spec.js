@@ -1,12 +1,14 @@
 var expect = require('chai').expect;
 
-var problems = require('../src/problems-11-through-20');
+var problems = require('../src/problems-11-through-20'),
+    problem11Data = require('./data/problem-11-data.json');
 
 describe('Problems 11 through 20', function () {
 
     describe('Problem 11: Largest Product In A Grid', function () {
         it('should calculate the greatest product of 4 digits', function() {
-            //expect();
+            var grid = problem11Data.bigGrid;
+            expect(problems.largestProductInGrid(grid, 4)).to.be.eql(70600674);
         });
     });
 
@@ -16,7 +18,7 @@ describe('Problems 11 through 20', function () {
         });
 
         xit('should calculate the first triangle number with 500 divisors', function() {
-            //expect(problems.divisibleTriangleNumbers(5)).to.be.eql(28);
+            //expect(problems.divisibleTriangleNumbers(500)).to.be.eql(??);
         });
     });
 
