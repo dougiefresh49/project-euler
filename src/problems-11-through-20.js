@@ -11,7 +11,8 @@ module.exports = {
     largeSum: largeSum,
     largestCollatzSequence: largestCollatzSequence,
     getPossibleLatticePaths: getPossibleLatticePaths,
-    powerDigitSum: powerDigitSum
+    powerDigitSum: powerDigitSum,
+    factorialDigitSum: factorialDigitSum
 };
 
 // Problem 11: Largest Product In A Grid
@@ -150,4 +151,18 @@ function powerDigitSum(base, power) {
         });
 
     return total.toString();
+}
+
+// Problem 20: Factorial Digit Sum
+function factorialDigitSum(n) {
+
+    function sum(a, b) {
+        return parseInt(a) + parseInt(b);
+    }
+
+    return commons
+        .factorial(n)
+        .toString()
+        .split('')
+        .reduce(sum, 0);
 }

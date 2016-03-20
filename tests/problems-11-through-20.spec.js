@@ -59,4 +59,14 @@ describe('Problems 11 through 20', function () {
         });
     });
     
+    describe('Problem 20: Factorial Digit Sum', function () {
+        it('should sum the digits in 10 factorial', function() {
+            expect(problems.factorialDigitSum(10)).to.be.eql(27);
+        });
+
+        it('should sum the digits in 100 factorial', function() {
+            expect(problems.factorialDigitSum(100)).to.be.eql(648);
+        });
+    });
+    
 });
