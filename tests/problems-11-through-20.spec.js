@@ -39,7 +39,7 @@ describe('Problems 11 through 20', function () {
         });
     });
     
-    describe.only('Problem 15: Lattice Paths', function () {
+    describe('Problem 15: Lattice Paths', function () {
         it('should count 6 possible routes for a 2x2 grid', function() {
             expect(problems.getPossibleLatticePaths(2,2)).to.be.eql(6);
         });
