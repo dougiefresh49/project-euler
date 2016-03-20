@@ -60,5 +60,15 @@ describe('Common Algorithms', function () {
             expect(commons.getTriangleNumber(7)).to.be.eql(28);
         });
     });
+
+    describe('Factorial', function () {
+        it('should calculate 5!', function() {
+            expect(commons.factorial(5).toString()).to.be.eql('120');
+        });
+
+        it('should calculate 10!', function() {
+            expect(commons.factorial(10).toString()).to.be.eql('3628800');
+        });
+    });
     
 });

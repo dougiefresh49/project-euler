@@ -1,3 +1,4 @@
+var bigInt = require("big-integer");
 
 module.exports = {
     euclideanGCD: euclideanGCD,
@@ -5,7 +6,8 @@ module.exports = {
     isPrime: isPrime,
     getTriangleNumber: getTriangleNumber,
     getNumFactors: getNumFactors,
-    getCollatzChain: getCollatzChain
+    getCollatzChain: getCollatzChain,
+    factorial: factorial
 };
 
 // Wiki: https://en.wikipedia.org/wiki/Euclidean_algorithm
@@ -76,4 +78,15 @@ function getCollatzChain(n) {
     }
 
     return chainLength;
+}
+
+// Basic factorial recursion but using array to save the values vs calculations
+// Source: http://stackoverflow.com/questions/3959211/fast-factorial-function-in-javascript
+var f = [];
+function factorial (n) {
+    if (n == 0 || n == 1)
+        return 1;
+    if (f[n] > 0)
+        return f[n];
+    return f[n] = bigInt(factorial(n-1)).multiply(bigInt(n));
 }
