@@ -39,4 +39,14 @@ describe('Problems 11 through 20', function () {
         });
     });
     
+    describe('Problem 15: Power digit sum', function () {
+        it('should sum the digits of 2^15 to be 26', function() {
+            expect(problems.powerDigitSum(2, 15)).to.be.eql('26');
+        });
+
+        it('should sum the digits of 2^1000', function() {
+            expect(problems.powerDigitSum(2, 1000)).to.be.eql('1366');
+        });
+    });
+    
 });

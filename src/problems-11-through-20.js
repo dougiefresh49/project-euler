@@ -9,7 +9,8 @@ module.exports = {
     largestProductInGrid: largestProductInGrid,
     divisibleTriangleNumbers: divisibleTriangleNumbers,
     largeSum: largeSum,
-    largestCollatzSequence: largestCollatzSequence
+    largestCollatzSequence: largestCollatzSequence,
+    powerDigitSum: powerDigitSum
 };
 
 // Problem 11: Largest Product In A Grid
@@ -101,4 +102,19 @@ function largestCollatzSequence(limit) {
     }
 
     return longestCollatz.startingNumber;
+}
+
+// Problem 15: Power Digit Sum
+function powerDigitSum(base, power) {
+    var total = bigInt();
+
+    bigInt(base)
+        .pow(power)
+        .toString()
+        .split('')
+        .forEach(function (digit) {
+            total = bigInt(digit).add(total);
+        });
+
+    return total.toString();
 }
