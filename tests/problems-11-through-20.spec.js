@@ -1,7 +1,8 @@
 var expect = require('chai').expect;
 
 var problems = require('../src/problems-11-through-20'),
-    problem11Data = require('./data/problem-11-data.json');
+    problem11Data = require('./data/problem-11-data.json'),
+    problem13Data = require('./data/problem-13-data.json');
 
 describe('Problems 11 through 20', function () {
 
@@ -25,6 +26,8 @@ describe('Problems 11 through 20', function () {
 
     describe('Problem 13: Large Sum', function () {
         it('should first ten digits of the sum of the one-hundred 50-digit numbers', function() {
+            var numbers = problem13Data.numbers;
+            expect(problems.largeSum(numbers)).to.be.eql('5537376230');
         });
     });
 

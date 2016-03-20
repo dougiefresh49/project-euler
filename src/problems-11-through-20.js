@@ -2,11 +2,13 @@
  * Created by dougiefresh49 on 2/1/16.
  */
 
-var commons = require('./common-algorithms');
+var commons = require('./common-algorithms'),
+    bigInt = require("big-integer");
 
 module.exports = {
     largestProductInGrid: largestProductInGrid,
     divisibleTriangleNumbers: divisibleTriangleNumbers,
+    largeSum: largeSum,
     largestCollatzSequence: largestCollatzSequence
 };
 
@@ -71,9 +73,16 @@ function divisibleTriangleNumbers(numDivisors) {
     return triangleNum;
 }
 
-// TODO
 // Problem 13: Large Sum
+function largeSum(numbers) {
+    var total = bigInt();
 
+    numbers.forEach(function (number) {
+        total = bigInt(number).add(total);
+    });
+
+    return total.toString().substring(0, 10);
+}
 // Problem 14: Largest Collatz Sequence
 function largestCollatzSequence(limit) {
     var longestCollatz = {
