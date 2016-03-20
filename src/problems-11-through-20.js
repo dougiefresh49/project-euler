@@ -9,7 +9,9 @@ module.exports = {
     largestProductInGrid: largestProductInGrid,
     divisibleTriangleNumbers: divisibleTriangleNumbers,
     largeSum: largeSum,
-    largestCollatzSequence: largestCollatzSequence
+    largestCollatzSequence: largestCollatzSequence,
+    getPossibleLatticePaths: getPossibleLatticePaths,
+    powerDigitSum: powerDigitSum
 };
 
 // Problem 11: Largest Product In A Grid
@@ -83,6 +85,7 @@ function largeSum(numbers) {
 
     return total.toString().substring(0, 10);
 }
+
 // Problem 14: Largest Collatz Sequence
 function largestCollatzSequence(limit) {
     var longestCollatz = {
@@ -101,4 +104,51 @@ function largestCollatzSequence(limit) {
     }
 
     return longestCollatz.startingNumber;
+}
+
+// Problem 15: Lattice Paths
+// An even more optimized solution would be to use choose(m+n-1, n-1)
+// See http://qa.geeksforgeeks.org/3676/number-of-unique-paths
+function getPossibleLatticePaths(m, n) {
+
+    var i, j, storedCounts = [];
+    m++; n++; // increment m and n by 1, ex: a 2x2 grid has 9 vertices, see below
+
+    /*
+     1--2--3
+     |  |  |
+     4--5--6
+     |  |  |
+     7--8--9
+     */
+
+    // create 2D array to store previously found counts for direct lookup time with dynamic programming
+    for(storedCounts; storedCounts.length < m; storedCounts.push([]));
+
+    // set top row and first col to 1's
+    for(i = 0; i < m; i++){ storedCounts[i][0] = 1; }
+    for(j = 0; j < n; j++){ storedCounts[0][j] = 1; }
+
+    for(i = 1; i < m; i++) {
+        for(j = 1; j < n; j++) {
+            storedCounts[i][j] = storedCounts[i-1][j] + storedCounts[i][j-1]
+        }
+    }
+
+    return storedCounts[m-1][n-1];
+}
+
+// Problem 16: Power Digit Sum
+function powerDigitSum(base, power) {
+    var total = bigInt();
+
+    bigInt(base)
+        .pow(power)
+        .toString()
+        .split('')
+        .forEach(function (digit) {
+            total = bigInt(digit).add(total);
+        });
+
+    return total.toString();
 }
