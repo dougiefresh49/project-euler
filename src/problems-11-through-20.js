@@ -110,7 +110,6 @@ function largestCollatzSequence(limit) {
 // An even more optimized solution would be to use choose(m+n-1, n-1)
 // See http://qa.geeksforgeeks.org/3676/number-of-unique-paths
 function getPossibleLatticePaths(m, n) {
-
     var i, j, storedCounts = [];
     m++; n++; // increment m and n by 1, ex: a 2x2 grid has 9 vertices, see below
 
