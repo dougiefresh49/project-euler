@@ -13,6 +13,7 @@ module.exports = {
     getPossibleLatticePaths: getPossibleLatticePaths,
     powerDigitSum: powerDigitSum,
     numberLetterCounts: numberLetterCounts,
+    maxSumInTriangle: maxSumInTriangle,
     factorialDigitSum: factorialDigitSum
 };
 
@@ -183,13 +184,36 @@ function numberLetterCounts(startNum, endNum) {
 
     // Loop and process all the numbers
     for(var i = startNum; i <= endNum; i++) {
-        var word = convertThousands(i);
-        console.log(word);
-        totalCount += word.replace(/\s/g, '').length; // Note: don't count spaces
+        totalCount += convertThousands(i).replace(/\s/g, '').length; // Note: don't count spaces
     }
 
     return totalCount;
 }
+
+// Problem 18
+// Good explanation: http://himangi774.blogspot.com/2013/05/find-maximum-sum-in-triangle-from-top.html
+// Solution reference: https://rosettacode.org/wiki/Maximum_triangle_path_sum#JavaScript
+function maxSumInTriangle(triangle) {
+
+    while(triangle.length !== 1) {
+        var newRow = [],
+            currentRow = triangle[triangle.length - 2],
+            lastRow = triangle[triangle.length - 1];
+
+        for (var i = 0; i < currentRow.length; i++) {
+            newRow.push(Math.max(currentRow[i] + lastRow[i] || 0 , currentRow[i] + lastRow[i+1] || 0));
+        }
+
+        triangle.pop();
+        triangle.pop();
+        triangle.push(newRow);
+    }
+
+    return triangle[0][0];
+}
+
+
+// Problem 19
 
 // Problem 20: Factorial Digit Sum
 function factorialDigitSum(n) {
