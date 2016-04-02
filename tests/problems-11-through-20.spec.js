@@ -3,7 +3,8 @@ var expect = require('chai').expect;
 var problems = require('../src/problems-11-through-20'),
     problem11Data = require('./data/problem-11-data.json'),
     problem13Data = require('./data/problem-13-data.json'),
-    problem18Data = require('./data/problem-18-data.json');
+    problem18Data = require('./data/problem-18-data.json'),
+    problem67Data = require('./data/problem-67-data.json');
 
 describe('Problems 11 through 20', function () {
 
@@ -81,6 +82,10 @@ describe('Problems 11 through 20', function () {
 
         it('should find the maximum path on the large triangle', function() {
             expect(problems.maxSumInTriangle(problem18Data.triangle)).to.be.eql(1074);
+        });
+
+        it('should find the maximum path on the huge triangle (problem 67)', function() {
+            expect(problems.maxSumInTriangle(problem67Data.hugeTriangle)).to.be.eql(7273);
         });
     });
 
