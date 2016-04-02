@@ -59,6 +59,32 @@ describe('Problems 11 through 20', function () {
         });
     });
     
+    describe('Problem 17: Number Letter Counts', function () {
+        it('should count the letters in numbers 1 through 5', function() {
+            expect(problems.numberLetterCounts(1, 5)).to.be.eql(19);
+        });
+
+        it('should count the letters in numbers 1 through 1000', function() {
+            expect(problems.numberLetterCounts(1, 1000)).to.be.eql(21124);
+        });
+    });
+    
+    describe('Problem 18: Maximum Path Sum #1', function () {
+        it('should find the maximum path on the small tree', function() {
+            expect();
+        });
+
+        it('should find the maximum path on the large tree', function() {
+            expect();
+        });
+    });
+
+    describe('Problem 19: Counting Sundays', function () {
+        it('Count the number of Sundays that fell on the first of the month during the twentieth century', function() {
+            expect();
+        });
+    });
+    
     describe('Problem 20: Factorial Digit Sum', function () {
         it('should sum the digits in 10 factorial', function() {
             expect(problems.factorialDigitSum(10)).to.be.eql(27);

@@ -12,6 +12,7 @@ module.exports = {
     largestCollatzSequence: largestCollatzSequence,
     getPossibleLatticePaths: getPossibleLatticePaths,
     powerDigitSum: powerDigitSum,
+    numberLetterCounts: numberLetterCounts,
     factorialDigitSum: factorialDigitSum
 };
 
@@ -151,6 +152,43 @@ function powerDigitSum(base, power) {
         });
 
     return total.toString();
+}
+
+// Problem 17: Number Letter Counts
+function numberLetterCounts(startNum, endNum) {
+
+    var ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'],
+        tens = ['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'],
+        teens = ['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+    var totalCount = 0;
+
+    function convertThousands(n) {
+        return (n > 999)
+            ? ones[Math.floor(n / 1000)] + " thousand " + convertHundreds(n % 1000)
+            : convertHundreds(n);
+    }
+
+    function convertHundreds(n) {
+        return (n > 99)
+            ? ones[Math.floor(n / 100)] + " hundred " + convertTens(n % 100 , true)
+            : convertTens(n);
+    }
+
+    function convertTens(n, addAnd) {
+        var and = (addAnd && n !== 0) ? ' and ' : '';
+        return (n > 9 && n < 20)
+            ? and + teens[n - 10]
+            : and + tens[Math.floor(n / 10)] + ' ' + ones[n % 10];
+    }
+
+    // Loop and process all the numbers
+    for(var i = startNum; i <= endNum; i++) {
+        var word = convertThousands(i);
+        console.log(word);
+        totalCount += word.replace(/\s/g, '').length; // Note: don't count spaces
+    }
+
+    return totalCount;
 }
 
 // Problem 20: Factorial Digit Sum
