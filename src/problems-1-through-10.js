@@ -13,6 +13,7 @@ module.exports = {
     sumSquareDiff: sumSquareDiff,
     nthPrime: nthPrime,
     largestProductInSeries: largestProductInSeries,
+    pythagoreanTriplet: pythagoreanTriplet,
     sumAllPrimes: sumAllPrimes
 };
 
@@ -133,6 +134,22 @@ function largestProductInSeries(series, numAdj) {
     }
 
     return largestProduct;
+}
+
+// Problem 9: Special Pythagorean Triplet
+// Solution based off of the following
+// SO: http://stackoverflow.com/questions/16143499/pythagorean-triples-formula-in-javascript-project-euler-prob-9
+function pythagoreanTriplet(tripletSum) {
+    var a, b, c;
+    for(b = 1; b < tripletSum; b++) {
+        a = (Math.pow(tripletSum,2)/2 - tripletSum * b) / (tripletSum- b);
+
+        if(Math.floor(a) === a) {
+            c = tripletSum - a - b;
+            break;
+        }
+    }
+    return a * b * c;
 }
 
 // Problem 10: Summation of Primes
