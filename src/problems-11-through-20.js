@@ -14,6 +14,7 @@ module.exports = {
     powerDigitSum: powerDigitSum,
     numberLetterCounts: numberLetterCounts,
     maxSumInTriangle: maxSumInTriangle,
+    countSundays: countSundays,
     factorialDigitSum: factorialDigitSum
 };
 
@@ -212,8 +213,21 @@ function maxSumInTriangle(triangle) {
     return triangle[0][0];
 }
 
+// Problem 19: Counting Sundays
+function countSundays(startDate, endDate) {
+    var sundayCount = 0;
 
-// Problem 19
+    // Loop through the given years
+    for(var yr = startDate.getFullYear(); yr <= endDate.getFullYear(); yr++) {
+        // loop through each month of the year
+        for(var month = 0; month < 12; month++) {
+            // check for sunday on the first day of that month each year
+            sundayCount += (new Date(yr, month, 1).getDay() === 0) ? 1 : 0;
+        }
+    }
+    
+    return sundayCount;
+}
 
 // Problem 20: Factorial Digit Sum
 function factorialDigitSum(n) {

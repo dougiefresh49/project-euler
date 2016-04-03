@@ -91,7 +91,7 @@ describe('Problems 11 through 20', function () {
 
     describe('Problem 19: Counting Sundays', function () {
         it('Count the number of Sundays that fell on the first of the month during the twentieth century', function() {
-            expect();
+            expect(problems.countSundays(new Date("1 Jan 1901"), new Date("31 Dec 2000"))).to.be.eql(171);
         });
     });
     
