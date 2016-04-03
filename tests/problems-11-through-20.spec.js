@@ -21,7 +21,7 @@ describe('Problems 11 through 20', function () {
         });
 
         it('should calculate the first triangle number with 500 divisors', function() {
-            this.timeout(15000);
+            this.timeout(25000);
             expect(problems.divisibleTriangleNumbers(500)).to.be.eql(76576500);
         });
     });
