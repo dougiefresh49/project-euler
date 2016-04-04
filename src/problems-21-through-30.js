@@ -1,8 +1,24 @@
+var commons = require('./common-algorithms');
 
 module.exports = {
     calculateSingleNameScore: calculateSingleNameScore, 
-    nameScore: nameScore
+    nameScore: nameScore,
+    sumAmicableNumbers: sumAmicableNumbers
 };
+
+// Problem 21: Sum Amicable Numbers
+function sumAmicableNumbers(max) {
+    var a, b, _a, amicableSum = 0;
+
+    for (a = 1; a < max; a++) {
+        b = commons.sumProperDivisors(a);
+        _a = commons.sumProperDivisors(b);
+
+        amicableSum += ((a === _a && a !== b)) ? b : 0;
+    }
+    
+    return amicableSum;
+}
 
 
 // Problem 22: Name Scores

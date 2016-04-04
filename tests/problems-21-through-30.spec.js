@@ -5,6 +5,12 @@ var problems = require('../src/problems-21-through-30'),
 
 describe('Problems 21 through 30', function () {
     
+    describe('Problem 21: Amicable Numbers', function () {
+        it('should calculate the sum of Amicable Numbers under 10,000', function() {
+            expect(problems.sumAmicableNumbers(10000)).to.be.eql(31626);
+        });
+    });
+    
     describe('Problem 22: Name Scores', function () {
         it('should calculate the name score for "Collin" to be 53', function() {
             expect(problems.calculateSingleNameScore("COLIN", 937)).to.be.eql(49714);
