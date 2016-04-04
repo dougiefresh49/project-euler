@@ -76,5 +76,19 @@ describe('Common Algorithms', function () {
             expect(commons.getFactors(24)).to.be.eql([1,24,2,12,3,8,4,6]);
         });
     });
+    
+    describe('Sum Proper Divisors', function () {
+        it('should sum proper divisors of 24', function() {
+            expect(commons.sumProperDivisors(24)).to.be.eql(36);
+        });
+
+        it('should sum proper divisors of 220', function() {
+            expect(commons.sumProperDivisors(220)).to.be.eql(284);
+        });
+
+        it('should sum proper divisors of 284', function() {
+            expect(commons.sumProperDivisors(284)).to.be.eql(220);
+        });
+    });
 
 });

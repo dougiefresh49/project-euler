@@ -7,7 +7,8 @@ module.exports = {
     getTriangleNumber: getTriangleNumber,
     getFactors: getFactors,
     getCollatzChain: getCollatzChain,
-    factorial: factorial
+    factorial: factorial,
+    sumProperDivisors: sumProperDivisors
 };
 
 // Wiki: https://en.wikipedia.org/wiki/Euclidean_algorithm
@@ -88,4 +89,11 @@ function factorial (n) {
     if (f[n] > 0)
         return f[n];
     return f[n] = bigInt(factorial(n-1)).multiply(bigInt(n));
+}
+
+function sumProperDivisors(n) {
+    return getFactors(n)
+        .reduce(function (prev, current) {
+            return prev + ((current === n) ? 0 : current);
+        }, 0)
 }
