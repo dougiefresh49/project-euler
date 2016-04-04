@@ -73,7 +73,7 @@ function divisibleTriangleNumbers(numDivisors) {
 
     for(i; factors < numDivisors; i++) {
         triangleNum = commons.getTriangleNumber(i);
-        factors = commons.getNumFactors(triangleNum);
+        factors = commons.getFactors(triangleNum).length;
     }
 
     return triangleNum;
@@ -225,7 +225,7 @@ function countSundays(startDate, endDate) {
             sundayCount += (new Date(yr, month, 1).getDay() === 0) ? 1 : 0;
         }
     }
-    
+
     return sundayCount;
 }
 

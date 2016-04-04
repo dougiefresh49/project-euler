@@ -5,7 +5,7 @@ module.exports = {
     lcm: lcm,
     isPrime: isPrime,
     getTriangleNumber: getTriangleNumber,
-    getNumFactors: getNumFactors,
+    getFactors: getFactors,
     getCollatzChain: getCollatzChain,
     factorial: factorial
 };
@@ -57,15 +57,14 @@ function getTriangleNumber(n) {
     return ( n * (n + 1) ) / 2
 }
 
-function getNumFactors(n) {
-    var factors = 0;
-
+function getFactors(n) {
+    var factors = [];
     for(var i = 1; i*i <= n; i++) {
-        factors += (n % i === 0)
-            ? (i * i < n) ? 2 : 1
-            : 0;
+        if(n % i === 0){
+            factors.push(i);
+            factors.push(n/i);
+        }
     }
-
     return factors;
 }
 

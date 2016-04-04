@@ -70,5 +70,11 @@ describe('Common Algorithms', function () {
             expect(commons.factorial(10).toString()).to.be.eql('3628800');
         });
     });
-    
+
+    describe('Get Factors', function () {
+        it('should get all factors of 24', function() {
+            expect(commons.getFactors(24)).to.be.eql([1,24,2,12,3,8,4,6]);
+        });
+    });
+
 });
