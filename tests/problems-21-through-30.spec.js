@@ -20,5 +20,19 @@ describe('Problems 21 through 30', function () {
             expect(problems.nameScore(problem22Data.names)).to.be.eql(871198282);
         });
     });
+
+    describe('Problem 28: Number Spiral Diagonals', function () {
+        it('should sum the diagonals of 5x5 grid to be 101', function() {
+            expect(problems.sumDiagonals(5)).to.be.eql(101);
+        });
+
+        it('should sum the diagonals of 5x5 grid to be 101', function() {
+            expect(problems.sumDiagonals(7)).to.be.eql(261);
+        });
+
+        it('should sum the diagonals of the 1001x1001 grid to be ??', function() {
+            expect(problems.sumDiagonals(1001)).to.be.eql(669171001);
+        });
+    });
     
 });

@@ -3,7 +3,9 @@ var commons = require('./common-algorithms');
 module.exports = {
     calculateSingleNameScore: calculateSingleNameScore, 
     nameScore: nameScore,
-    sumAmicableNumbers: sumAmicableNumbers
+    sumAmicableNumbers: sumAmicableNumbers,
+
+    sumDiagonals: sumDiagonals
 };
 
 // Problem 21: Sum Amicable Numbers
@@ -42,4 +44,53 @@ function nameScore(names) {
         .sort()
         .map(calculateSingleNameScore)
         .reduce(sumAllNamesReducer, 0);
+}
+
+// Problem 28: Number Spiral Diagonals
+/**
+ * Note on Solution:
+ * ------------------
+ * The solution assumes a grid of size x, where x is an odd number.
+ * The algorithm simply starts at the center and
+ *      for every row from the center+1 to x
+ *          ~~ it calculates the sum of the 4 corners of the box made by
+ *             the nth row above and below the center
+ *          ~~ n is the current row - center
+ *  ___ ___ ___
+ * | 7 | 8 | 9 |
+ *  --- --- ---
+ * | 6 | 1 | 2 |
+ *  --- --- ---
+ * | 5 | 4 | 3 |
+ *  --- --- ---
+ *
+ *  x = 3
+ *  center = floor(x / 2) + 1 = 2
+ *  row = 1, 
+ *  n = row - center = 1
+ *  
+ *  top_right = (1 + 2n)^2
+ *  top_left = top_right - 2n = (1 + 2n)^2 - 2n
+ *  bottom_left = top_left - 2n = (1 + 2n)^2 - 2n - 2n = (1 + 2n)^2 - 4n
+ *  bottom_right = bottom_left - 2n = (1 + 2n)^2 - 4n - 2n = (1 + 2n)^2 - 6n
+ *
+ *  diagonalSum for x = 3 = top_right + top_left + bottom_left + bottom_right + 1
+ *
+ *  diagonalSum for x rows:
+ *   x 
+ * ( ∑  4(1 + 2n)^2 -12n ) + 1
+ *   x/2 
+ *  
+ */
+function sumDiagonals(gridSize) {
+    var n,
+        diagonalSum = 0,
+        center = Math.floor(gridSize / 2) + 1;
+
+    for (var row = center + 1; row < gridSize + 1; row++) {
+        n = row - center;
+        diagonalSum += 4 * Math.pow((1 + 2*n), 2) - 12*n;
+    }
+    
+    return diagonalSum + 1;
 }
