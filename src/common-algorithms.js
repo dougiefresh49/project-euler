@@ -5,9 +5,10 @@ module.exports = {
     lcm: lcm,
     isPrime: isPrime,
     getTriangleNumber: getTriangleNumber,
-    getNumFactors: getNumFactors,
+    getFactors: getFactors,
     getCollatzChain: getCollatzChain,
-    factorial: factorial
+    factorial: factorial,
+    sumProperDivisors: sumProperDivisors
 };
 
 // Wiki: https://en.wikipedia.org/wiki/Euclidean_algorithm
@@ -57,15 +58,14 @@ function getTriangleNumber(n) {
     return ( n * (n + 1) ) / 2
 }
 
-function getNumFactors(n) {
-    var factors = 0;
-
+function getFactors(n) {
+    var factors = [];
     for(var i = 1; i*i <= n; i++) {
-        factors += (n % i === 0)
-            ? (i * i < n) ? 2 : 1
-            : 0;
+        if(n % i === 0){
+            factors.push(i);
+            factors.push(n/i);
+        }
     }
-
     return factors;
 }
 
@@ -89,4 +89,11 @@ function factorial (n) {
     if (f[n] > 0)
         return f[n];
     return f[n] = bigInt(factorial(n-1)).multiply(bigInt(n));
+}
+
+function sumProperDivisors(n) {
+    return getFactors(n)
+        .reduce(function (prev, current) {
+            return prev + ((current === n) ? 0 : current);
+        }, 0)
 }
