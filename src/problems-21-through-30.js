@@ -1,10 +1,12 @@
-var commons = require('./common-algorithms');
+var bigInt = require("big-integer"),
+    commons = require('./common-algorithms');
 
 module.exports = {
     calculateSingleNameScore: calculateSingleNameScore, 
     nameScore: nameScore,
     sumAmicableNumbers: sumAmicableNumbers,
 
+    nDigitFibonacci: nDigitFibonacci,
     sumDiagonals: sumDiagonals
 };
 
@@ -45,6 +47,39 @@ function nameScore(names) {
         .map(calculateSingleNameScore)
         .reduce(sumAllNamesReducer, 0);
 }
+
+// Problem 25: 1000-digit Fibonacci number
+/**
+ * Note: nDigitFibonacci is an easy solution in code,
+ * a more mathematical approach with pen and paper would be...
+ *       
+ * knowing that any given fib number can be found with
+ * F(n) = phi^(n)/sqrt(5)
+ *
+ * we can use the following to solve for the qth-digit Fibonacci number
+ *   phi^(n)/sqrt(5) > 10^(q-1)
+ *     --> n*log(phi) - 0.5log5 > q - 1
+ *     --> n*log(phi) > q - 1 + 0.5log5
+ *     --> n > (q - 1 + 0.5log5)/log(phi)
+ *
+ *  Source: Explanation by ChillFruit on Project Euler Forums
+ */
+function nDigitFibonacci(n) {
+    var a = bigInt(1),
+        b = bigInt(1),
+        sum = 0,
+        term = 3;
+
+    while(n > a.plus(b).toString().length) {
+        term++;
+        sum = a.plus(b);
+        a = b;
+        b = sum;
+    }
+    
+    return term;
+}
+
 
 // Problem 28: Number Spiral Diagonals
 /**
