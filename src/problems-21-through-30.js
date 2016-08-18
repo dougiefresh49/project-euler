@@ -7,7 +7,8 @@ module.exports = {
     sumAmicableNumbers: sumAmicableNumbers,
 
     nDigitFibonacci: nDigitFibonacci,
-    sumDiagonals: sumDiagonals
+    sumDiagonals: sumDiagonals,
+    getDistinctPowers: getDistinctPowers
 };
 
 // Problem 21: Sum Amicable Numbers
@@ -128,4 +129,17 @@ function sumDiagonals(gridSize) {
     }
     
     return diagonalSum + 1;
+}
+
+// Problem 29: Distinct Powers
+function getDistinctPowers(limit) {
+    var distinctSet = new Set();
+
+    for(var a = 2; a <= limit; a++) {
+        for(var b = 2; b <= limit; b++) {
+            distinctSet.add(bigInt(a).pow(b).toString());
+        }
+    }
+    
+    return distinctSet.size;
 }

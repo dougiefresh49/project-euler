@@ -45,4 +45,14 @@ describe('Problems 21 through 30', function () {
         });
     });
     
+    describe('Problem 29: Distinct Powers', function () {
+        it('should calculate that, with a limit of 5, there are 15 distinct powers', function() {
+            expect(problems.getDistinctPowers(5)).to.be.eql(15);
+        });
+
+        it('should calculate that, with a limit of 100, there are 9183 distinct powers', function() {
+            expect(problems.getDistinctPowers(100)).to.be.eql(9183);
+        });
+    });
+    
 });
